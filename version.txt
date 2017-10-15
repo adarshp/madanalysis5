@@ -1,5 +1,0 @@
-Date : 2017/06/07
-Time : 16:34:59
-MA5 version : 1.6.21
-Bazaar rev      : 134
-tarball created by fuks
