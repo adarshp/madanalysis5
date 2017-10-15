@@ -22,25 +22,29 @@
 ################################################################################
 
 
-class LineStyleType(object):
-        values = { 'SOLID'      : [1,'solid','"solid"'],\
-                   'DASHED'     : [2,'dashed','"dashed"'],\
-                   'DOTTED'     : [3,'dotted','"dotted"'],\
-                   'DASHDOTTED' : [4,'dash-dotted','"dashdot"'] }
+class CombinationType(object):
+    values = { 'UNKNOWN'    : [],\
+               'DEFAULT'    : [''],\
+               'SUMSCALAR'  : ['s'],\
+	       'SUMVECTOR'  : ['v'],\
+               'DIFFSCALAR' : ['ds','sd'],\
+               'DIFFVECTOR' : ['d','dv','vd'],\
+               'RATIO'      : ['r'] }
+               
+    class __metaclass__(type):
 
-        class __metaclass__(type):
+        def __getattr__(self, name):
+            return self.values.keys().index(name)
 
-                def __getattr__(self, name):
-                        return self.values.keys().index(name)
+        def convert_from_string(self,lowerletters):
+            for i,j in self.values.items():
+                if lowerletters in j:
+                    return self.__getattr__(i)
+            return self.__getattr__('UNKNOWN')
 
-                def convert2code(self,color):
-                        name = self.values.keys()[color]
-                        return self.values[name][0]
-
-                def convert2string(self,color):
-                        name = self.values.keys()[color]
-                        return self.values[name][1]
-
-                def convert2matplotlib(self,style):
-                        name = self.values.keys()[style]
-                        return self.values[name][2]
+        def convert2string(self,index):
+            if index==self.__getattr__('UNKNOWN'):
+                return 'ERROR'
+            else:
+                name = self.values.keys()[index]
+                return self.values[name][0]

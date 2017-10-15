@@ -24,14 +24,11 @@
 
 class ArgumentType(object):
     values = { 'COMBINATION' : [],\
-               'PARTICLE' : [],\
-	       'INTEGER'      : [],
-	       'FLOAT'    : []  }
+               'PARTICLE'    : [],\
+               'INTEGER'     : [],
+               'FLOAT'       : []  }
 
     class __metaclass__(type):
-	
+
         def __getattr__(self, name):
-	    return self.values.keys().index(name)
-
-	    
-
+            return self.values.keys().index(name)

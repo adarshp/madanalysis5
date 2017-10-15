@@ -34,7 +34,7 @@ import logging
 
 
 class MA5mode():
-   
+    
    def __init__(self):
       self.partonlevel    = False
       self.hadronlevel    = False
@@ -52,60 +52,60 @@ class MA5mode():
 # Function DefaultInstallCard
 ################################################################################
 def DefaultInstallCard():
-   logging.getLogger('MA5').info("Generate a default installation_options.dat file...")
-   output = file('installation_options.dat','w')
-   output.write('# WARNING! MA5 SHOULD DETECT AUTOMATICALLY YOUR CONFIGURATION\n')
-   output.write('# IF THIS AUTOMATED MODE FAILS, YOU CAN FORCE SOME \n')
-   output.write('# OPTIONS THROUGH THIS FILE\n')
-   output.write('\n')
-   output.write('# ----GENERAL----\n')
-   output.write('# tmp_dir = /tmp/ma5/\n')
-   output.write('# download_dir = /tmp/downloadma5/\n')
-   output.write('# webaccess_veto = 0 # 0=No, 1=Yes\n')
-   output.write('\n')
-   output.write('# -----ROOT-----\n')
-   output.write('# root_veto     = 0 # 0=No, 1=Yes\n')
-   output.write('# root_bin_path = /home/root/bin\n')
-   output.write('\n')
-   output.write('# -----MATPLOTLIB-----\n')
-   output.write('# matplotlib_veto = 0 # 0=No, 1=Yes\n')
-   output.write('\n')
-   output.write('# -----DELPHES----- \n')
-   output.write('# delphes_veto     = 0 # 0=No, 1=Yes\n')
-   output.write('# delphes_includes = /home/delphes/delphes/include/\n')
-   output.write('# delphes_libs     = /home/delphes/delphes/lib/\n')
-   output.write('\n')
-   output.write('# -----DELPHESMA5TUNE-----\n')
-   output.write('# delphesMA5tune_veto     = 0 # 0=No, 1=Yes\n')
-   output.write('# delphesMA5tune_includes = /home/delphesMA5tune/include\n')
-   output.write('# delphesMA5tune_libs     = /home/delphesMA5tune/lib\n')
-   output.write('\n')
-   output.write('# -----ZLIB-----\n')
-   output.write('# zlib_veto     = 0 # 0=No, 1=Yes\n')
-   output.write('# zlib_includes = /home/zlib/include/\n')
-   output.write('# zlib_libs     = /home/zlib/lib/\n')
-   output.write('\n')
-   output.write('# -----FASTJET-----\n')
-   output.write('# fastjet_veto     = 0 # 0=No, 1=Yes\n')
-   output.write('# fastjet_bin_path = /home/fastjet/build/bin/\n')
-   output.write('\n')
-   output.write('# -----PDFLATEX-----\n')
-   output.write('# pdflatex_veto = 0 # 0=No, 1=Yes\n')
-   output.write('\n')
-   output.write('# -----LATEX-----\n')
-   output.write('# latex_veto = 0 # 0=No, 1=Yes\n')
-   output.write('\n')
-   output.close()
+    logging.getLogger('MA5').info("Generate a default installation_options.dat file...")
+    output = file('installation_options.dat','w')
+    output.write('# WARNING! MA5 SHOULD DETECT AUTOMATICALLY YOUR CONFIGURATION\n')
+    output.write('# IF THIS AUTOMATED MODE FAILS, YOU CAN FORCE SOME \n')
+    output.write('# OPTIONS THROUGH THIS FILE\n')
+    output.write('\n')
+    output.write('# ----GENERAL----\n')
+    output.write('# tmp_dir = /tmp/ma5/\n')
+    output.write('# download_dir = /tmp/downloadma5/\n')
+    output.write('# webaccess_veto = 0 # 0=No, 1=Yes\n')
+    output.write('\n')
+    output.write('# -----ROOT-----\n')
+    output.write('# root_veto     = 0 # 0=No, 1=Yes\n')
+    output.write('# root_bin_path = /home/root/bin\n')
+    output.write('\n')
+    output.write('# -----MATPLOTLIB-----\n')
+    output.write('# matplotlib_veto = 0 # 0=No, 1=Yes\n')
+    output.write('\n')
+    output.write('# -----DELPHES----- \n')
+    output.write('# delphes_veto     = 0 # 0=No, 1=Yes\n')
+    output.write('# delphes_includes = /home/delphes/delphes/include/\n')
+    output.write('# delphes_libs     = /home/delphes/delphes/lib/\n')
+    output.write('\n')
+    output.write('# -----DELPHESMA5TUNE-----\n')
+    output.write('# delphesMA5tune_veto     = 0 # 0=No, 1=Yes\n')
+    output.write('# delphesMA5tune_includes = /home/delphesMA5tune/include\n')
+    output.write('# delphesMA5tune_libs     = /home/delphesMA5tune/lib\n')
+    output.write('\n')
+    output.write('# -----ZLIB-----\n')
+    output.write('# zlib_veto     = 0 # 0=No, 1=Yes\n')
+    output.write('# zlib_includes = /home/zlib/include/\n')
+    output.write('# zlib_libs     = /home/zlib/lib/\n')
+    output.write('\n')
+    output.write('# -----FASTJET-----\n')
+    output.write('# fastjet_veto     = 0 # 0=No, 1=Yes\n')
+    output.write('# fastjet_bin_path = /home/fastjet/build/bin/\n')
+    output.write('\n')
+    output.write('# -----PDFLATEX-----\n')
+    output.write('# pdflatex_veto = 0 # 0=No, 1=Yes\n')
+    output.write('\n')
+    output.write('# -----LATEX-----\n')
+    output.write('# latex_veto = 0 # 0=No, 1=Yes\n')
+    output.write('\n')
+    output.close()
 
 
 ################################################################################
 # Function DecodeArguments
 ################################################################################
 def DecodeArguments(version, date):
-   
+    
     import sys
     import os
-   
+    
     # Checking arguments
     import getopt
     try:
@@ -251,7 +251,7 @@ def MainSession(mode,arglist,ma5dir,version,date):
 
     # Building (if necesserary) the SampleAnalyzer library
     if not main.BuildLibrary(forced=mode.build):
-        sys.exit()
+        sys.exit()	
 
     logging.getLogger('MA5').info("*************************************************************")
 

@@ -22,25 +22,28 @@
 ################################################################################
 
 
-class LineStyleType(object):
-        values = { 'SOLID'      : [1,'solid','"solid"'],\
-                   'DASHED'     : [2,'dashed','"dashed"'],\
-                   'DOTTED'     : [3,'dotted','"dotted"'],\
-                   'DASHDOTTED' : [4,'dash-dotted','"dashdot"'] }
+class OperatorType(object):
+    values = { 'GREATER'       : [">",">"],\
+	       'GREATER_EQUAL' : [">=",">="],\
+	       'LESS'          : ["<","<"],\
+	       'LESS_EQUAL'    : ["<=","<="],\
+	       'EQUAL'         : ["=","=="],\
+	       'NOT_EQUAL'     : ["!=","!="],\
+               'UNKNOWN'       : ["",""]
+               }
 
-        class __metaclass__(type):
+    class __metaclass__(type):
+	    
+        def __getattr__(self, name):
+            if name in self.values.keys():
+                return self.values.keys().index(name)
+  	    else:
+                return self.values.keys().index('UNKNOWN')
 
-                def __getattr__(self, name):
-                        return self.values.keys().index(name)
+        def convert2string(self,op):
+	    name = self.values.keys()[op]
+	    return self.values[name][0]
 
-                def convert2code(self,color):
-                        name = self.values.keys()[color]
-                        return self.values[name][0]
-
-                def convert2string(self,color):
-                        name = self.values.keys()[color]
-                        return self.values[name][1]
-
-                def convert2matplotlib(self,style):
-                        name = self.values.keys()[style]
-                        return self.values[name][2]
+        def convert2cpp(self,op):
+	    name = self.values.keys()[op]
+	    return self.values[name][1]

@@ -1,5 +1,5 @@
-Date : 2016/12/30
-Time : 12:14:29
-MA5 version : 1.5
-Bazaar rev      : 121
-tarball created by econte
+Date : 2017/06/07
+Time : 16:34:59
+MA5 version : 1.6.21
+Bazaar rev      : 134
+tarball created by fuks

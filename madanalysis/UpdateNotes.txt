@@ -1,6 +1,29 @@
 Update notes for MadAnalysis 5 (in reverse time order)
 
-121           (2016/12/30) econte:  fix bug with pileup 
+134           (2017/06/07) fuks:    Plotting weights 
+
+132           (2017/05/22) fuks:    zlib detection triggering an unwanted compilation within the mg5 
+                                   interface 
+
+131           (2017/05/22) fuks:    Adding Maxime's analyses to the PAD + updating older PAD info 
+
+130           (2017/03/05) fuks:    fixing bug #523411 on launchpad 
+
+129           (2017/02/21) econte:  Fix ToRestFrame function 
+
+128           (2017/02/07) fuks:    Bug with the mg5-ma5 interface and the new treatment of the scripts 
+
+127           (2017/02/04) fuks:    Fixes for macos sierra 
+
+126           (2017/01/31) fuks:    Small bug with the PAD installation 
+
+125           (2017/01/30) econte:  Fix new version zlib + fix pb detection zlib 
+
+123           (2016/12/30) econte:  fix bug with '<' command where mother = initial state 
+
+122           (2016/12/30) econte:  fix bug with pileup 
+
+121           (2016/12/28) econte:  update 1.6 from the main branch 
 
 118           (2016/12/28) econte:  remove warnings in compilation 
 

@@ -22,25 +22,29 @@
 ################################################################################
 
 
-class LineStyleType(object):
-        values = { 'SOLID'      : [1,'solid','"solid"'],\
-                   'DASHED'     : [2,'dashed','"dashed"'],\
-                   'DOTTED'     : [3,'dotted','"dotted"'],\
-                   'DASHDOTTED' : [4,'dash-dotted','"dashdot"'] }
+class FontType(object):
+	values = {'none' : ['','','',''],\
+			  'IT'   : ['\\textit{','}','<i>','</i>'],\
+			  'BF'   : ['\\textbf{','}','<b>','</b>'],\
+			  'TT'   : ['\\texttt{','}','  <tt>','</tt>'],\
+			  'ITBF' : ['\\textit{\\textbf{','}}','<i><b>','</i></b>']}
+        
+	class __metaclass__(type):
+		def __getattr__(self, name):
+			return self.values.keys().index(name)
+		
+		def convert2latex(self,font):
+			name = self.values.keys()[font]
+			return self.values[name][0]
 
-        class __metaclass__(type):
+		def convert2latexclose(self,font):
+			name = self.values.keys()[font]
+			return self.values[name][1]
 
-                def __getattr__(self, name):
-                        return self.values.keys().index(name)
+		def convert2html(self,font):
+			name = self.values.keys()[font]
+			return self.values[name][2]
 
-                def convert2code(self,color):
-                        name = self.values.keys()[color]
-                        return self.values[name][0]
-
-                def convert2string(self,color):
-                        name = self.values.keys()[color]
-                        return self.values[name][1]
-
-                def convert2matplotlib(self,style):
-                        name = self.values.keys()[style]
-                        return self.values[name][2]
+		def convert2htmlclose(self,font):
+			name = self.values.keys()[font]
+			return self.values[name][3]
