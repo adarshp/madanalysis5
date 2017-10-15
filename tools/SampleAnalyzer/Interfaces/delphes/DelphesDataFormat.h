@@ -42,6 +42,7 @@ namespace MA5
 struct DelphesDataFormat
 {
   /// Pointers to data
+  TClonesArray* FatJet_;
   TClonesArray* Jet_;
   TClonesArray* Electron_;
   TClonesArray* Photon_;
@@ -57,6 +58,7 @@ struct DelphesDataFormat
   TClonesArray* EFlowNeutral_;
 
   /// Pointers to branches
+  TBranch* branchFatJet_;
   TBranch* branchJet_;
   TBranch* branchElectron_;
   TBranch* branchPhoton_;
